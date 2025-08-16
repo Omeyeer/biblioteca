@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+</head>
+<body>
+<h1>Lista de Livros</h1>
+
+<a href="/novo">➕ Adicionar Novo Livro</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Total de Páginas</th>
+        <th>Emprestado?</th>
+    </tr>
+    <tr th:each="livro : ${livros}">
+        <td th:text="${livro.id}"></td>
+        <td th:text="${livro.titulo}"></td>
+        <td th:text="${livro.autor}"></td>
+        <td th:text="${livro.totPaginas}"></td>
+        <td th:text="${livro.emprestado}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -57,4 +57,7 @@ public class LivroService {
     }
 
 
+    public void save(Livro livro) {
+        livroRepository.save(livro);
+    }
 }
