@@ -33,5 +33,15 @@ public class LivroService {
         return livroRepository.save(livro); //
     }
 
+    public Livro devolver(Long id) {
+        Livro livro = livroRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+        if (!livro.isEmprestado()){
+            throw new RuntimeException("O livro não está emprestado para ser devolvido!");
+        }
+        livro.setEmprestado(false);
+        return livroRepository.save(livro);
+    }
+
 
 }

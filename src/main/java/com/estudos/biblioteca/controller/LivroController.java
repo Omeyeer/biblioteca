@@ -2,6 +2,7 @@ package com.estudos.biblioteca.controller;
 
 import com.estudos.biblioteca.model.Livro;
 import com.estudos.biblioteca.service.LivroService;
+import org.hibernate.dialect.unique.CreateTableUniqueDelegate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class LivroController {
     }
 
     @PostMapping
-    public Livro cadastrar (@RequestBody Livro livro){
+    public Livro cadastrar(@RequestBody Livro livro) {
         return livroService.salvar(livro);
     }
 
@@ -30,5 +31,4 @@ public class LivroController {
     public Livro emprestar(@PathVariable Long id) {
         return livroService.emprestar(id);
     }
-
 }
