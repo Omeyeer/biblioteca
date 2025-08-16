@@ -10,6 +10,7 @@ Esse projeto permite o cadastro de livros e pessoas, emprestar e devolver livros
 - Spring Boot
 - Spring Data JPA
 - H2 Database (em memória)
+- HTML + CSS básicos
 - Maven
 
 ⚙️ Como rodar o projeto
@@ -28,34 +29,11 @@ Esse projeto permite o cadastro de livros e pessoas, emprestar e devolver livros
    - User: sa
    - Password: (deixar em branco)
 
-📖 Endpoints da API
-
-Livros
-- GET    /livros                 → Lista todos os livros
-- POST   /livros                 → Cadastra um novo livro
-- PUT    /livros/emprestar/{id}  → Marca um livro como emprestado
-- PUT    /livros/devolver/{id}   → Marca um livro como devolvido
-
-Exemplo POST /livros
-{
-  "titulo": "Código Limpo",
-  "autor": "Robert C. Martin",
-  "totPaginas": 425,
-  "emprestado": false
-}
-
-Pessoas
-- GET    /pessoas                → Lista todas as pessoas
-- POST   /pessoas                → Cadastra uma nova pessoa
-
-Exemplo POST /pessoas
-{
-  "nome": "João Pedro",
-}
 
 ⚠️ Observações
 - O banco H2 é em memória, os dados somem ao desligar a aplicação.
-- Todos os endpoints seguem o padrão RESTful.
+- o endpoint /novo no momento funciona apenas via navegador com formulário HTML.
+- Não estou utilizando @RequestBody.
 
 👤 Autor
 - Leonardo Cantarella
