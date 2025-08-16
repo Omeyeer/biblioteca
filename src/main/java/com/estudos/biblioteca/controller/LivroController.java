@@ -1,6 +1,7 @@
 package com.estudos.biblioteca.controller;
-
+import java.util.Optional;
 import com.estudos.biblioteca.model.Livro;
+import org.springframework.http.ResponseEntity;
 import com.estudos.biblioteca.service.LivroService;
 import org.hibernate.dialect.unique.CreateTableUniqueDelegate;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,17 @@ public class LivroController {
     @GetMapping
     public List<Livro> listar() {
         return livroService.listarTodos();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Livro> deletar(@PathVariable Long id) {
+        Optional<Livro> livroDeletado = livroService.deletarPorId(id);
+
+        if (livroDeletado.isPresent()) {
+            return ResponseEntity.ok(livroDeletado.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @PutMapping("/emprestar/{id}")
